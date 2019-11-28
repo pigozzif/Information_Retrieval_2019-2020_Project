@@ -160,7 +160,7 @@ class WebCrawler(object):
                      "\naggregate frontier size: " + str(frontier_size) +
                      "\nn° hosts contacted: " + str(num_hosts) + "\n")
 
-    def crawl(self, num_urls, seeds, user_agent, prioritizer=lambda x: random.random(), num_threads=2, verbose=1):
+    def crawl(self, num_urls, seeds, user_agent, num_threads, prioritizer=lambda x: random.random(), verbose=1):
         """
         Run the overall crawling pipeline. In particular, different threads are instantiated
         and instructed to progress the crawling. In the meanwhile, the main thread (that is
