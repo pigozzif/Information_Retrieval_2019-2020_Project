@@ -16,5 +16,6 @@ for webpage in our_crawler.crawl(100, seeds, my_user_agent, num_threads=1):
 
     # HERE THE USER CAN DO ANY DESIRED MANIPULATION ON THE YIELDED
     # PAGE. FOR THE SAKE OF ILLUSTRATION, WE ARE SIMPLY PRINTING ITS
-    # URL
+    # URL, BUT WE COULD ALSO DO SOMETHING WITH webpage.content, or
+    # webpage.text, ...
     print(webpage.url)
