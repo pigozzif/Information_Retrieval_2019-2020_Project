@@ -19,6 +19,7 @@ The project consists of the following source files:
 * `single_crawler.py` contains the "child" crawlers' class that extend the `threading.Thread` class and physically crawl the Web. 
 * `frontier.py` contains the frontier implementation;
 * `main.py` is a simple script to instantiate and launch a web crawler. The user is supposed to work on this file; in particular, he/she may decide what to do with the retrieved webpages.
+
 The code has been extensively commented and documented; all the details can be found inside the source files.
 
 **If you wish to run the web crawler, be sure to edit the variable `my_user_agent` inside the `main.py` file to be whatever corresponds to your web browser.** 
