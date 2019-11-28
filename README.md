@@ -15,8 +15,8 @@ The following dependencies are guaranteed to be enough for the program to run:
 
 ## Navigating the Project
 The project consists of the following source files:
-* `web_crawler.py` contains the `WebCrawler` class, supposed to manage and coordinate a team of "child" crawlers.
-* `single_crawler.py` contains the "child" crawlers' class that extend the `threading.Thread` class and physically crawl the Web. 
+* `web_crawler.py` contains the `WebCrawler` class, supposed to manage and coordinate a team of "child" crawlers;
+* `single_crawler.py` contains the "child" crawlers' class that extend the `threading.Thread` class and physically crawl the Web;
 * `frontier.py` contains the frontier implementation;
 * `main.py` is a simple script to instantiate and launch a web crawler. The user is supposed to work on this file; in particular, he/she may decide what to do with the retrieved webpages.
 
