@@ -13,4 +13,11 @@ The following dependencies are guaranteed to be enough for the program to run:
 * requests==2.22.0
 * urllib3==1.25.7
 
-## work in progress
+## Navigating the Project
+The project consists of the following source files:
+* `web_crawler.py` contains the `WebCrawler` class, supposed to manage and coordinate a team of "child" crawlers.
+* `single_crawler.py` contains the "child" crawlers' class that extend the `threading.Thread` class and physically crawl the Web. 
+* `frontier.py` contains the frontier implementation;
+* `main.py` is a simple script to instantiate and launch a web crawler. The user is supposed to work on this file; in particular, he/she may decide what to do with the retrieved webpages. 
+
+**If you wish to run the web crawler, be sure to edit the variable `my_user_agent` inside the `main.py` file to be whatever corresponds to your web browser.** 
