@@ -12,7 +12,7 @@ seeds = ["https://en.wikipedia.org/wiki/Main_Page", "https://it.wikipedia.org/wi
 
 # create a WebCrawler instance and generate webpages (as requests.models.Response objects)
 our_crawler = web_crawler.WebCrawler()
-for webpage in our_crawler.crawl(100, seeds, my_user_agent):
+for webpage in our_crawler.crawl(100, seeds, my_user_agent, num_threads=1):
 
     # HERE THE USER CAN DO ANY DESIRED MANIPULATION ON THE YIELDED
     # PAGE. FOR THE SAKE OF ILLUSTRATION, WE ARE SIMPLY PRINTING ITS
