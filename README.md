@@ -3,6 +3,7 @@ This repository is supposed to host the code for a web crawler project, develope
 
 ## Running the Program
 If you wish to run the program, just place yourself in the project directory and type on the command line:
+
 `python3 main.py`
 
 The following dependencies are guaranteed to be enough for the program to run:
