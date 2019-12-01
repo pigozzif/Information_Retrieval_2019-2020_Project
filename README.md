@@ -9,7 +9,7 @@ If you wish to run the program, just place yourself in the project directory and
 The following dependencies are guaranteed to be enough for the program to run:
 * python==3.7
 * bs4==4.8.1
-* reppy=0.4.14
+* reppy==0.4.14
 * requests==2.22.0
 * urllib3==1.25.7
 
