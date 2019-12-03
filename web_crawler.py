@@ -168,7 +168,7 @@ class WebCrawler(object):
         by individual threads) and yields them to the user. This function is supposed to
         be used as a generator.
         :param num_urls: total number of urls to crawl
-        :param seeds: the entry points for the threads
+        :param seeds: the entry points for the threads, a dictionary of (num_thread, list-of-assigned-seeds) pairs
         :param user_agent: the executing user-agent
         :param prioritizer: a function that, given a url, assigns a priority score in [0, 1]
         :param num_threads: number of threads to spawn
@@ -176,8 +176,8 @@ class WebCrawler(object):
         :return: generates requests.models.Response objects for the fetched pages
         """
         # perform some checks on user-provided input
-        assert len(seeds) == num_threads, "less seeds than threads"
-        assert len(set(seeds)) == len(seeds), "using duplicate seeds results in empty frontier heaps"
+        assert isinstance(seeds, dict), "seeds should be a dict of (num_thread, list-of-assigned-seeds) pairs"
+        assert len(seeds.keys()) == num_threads, "there should be one dict entry for every thread"
 
         # format logging and distribute urls among threads
         form = "%(asctime)s: %(message)s"
@@ -186,11 +186,12 @@ class WebCrawler(object):
 
         # create thread instances and launch them; they take care of the crawling. Notice that, following what
         # the designers of Mercator suggest according to the book (page 453), we delegate the creation of three times
-        # as many back queues (for each frontier) as crawler threads. The number of front queues is just a placeholder
+        # as many back queues (for each frontier) as crawler threads; since there is one frontier per thread, we will use
+        # three back queues. The number of front queues is just a placeholder
         # FORK THE TEAM
         for name in range(num_threads):
             self.__threads.append(single_crawler.SingleCrawler(str(name), self, num_urls_per_thread, seeds[name],
-                                                               user_agent, num_threads * 3, 5, prioritizer))
+                                                               user_agent, 3, 5, prioritizer))
             self.__threads[-1].start()
 
         # this block is executed by the main thread. Notice this is a VERY rough implementation
